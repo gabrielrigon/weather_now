@@ -4,4 +4,7 @@ Rails.application.routes.draw do
       resources :forecast, only: :index
     end
   end
+
+  get '*path', to: 'app#index', constraints: -> (req) { !req.xhr? && req.format.html? }
+  root 'app#index'
 end
