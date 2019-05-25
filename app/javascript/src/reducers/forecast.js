@@ -7,25 +7,43 @@ const {
 } = forecastActions
 
 const initialState = () => ({
-  city: '--',
+  city: '',
   forecast: {
-    fahrenheit: '--',
-    celsius: '--'
+    fahrenheit: '',
+    celsius: ''
   },
   loading: false,
-  error: ''
+  error: false
 })
 
 const forecast = (state = initialState(), action = {}) => {
   switch (action.type) {
     case FETCH_FORECAST_REQUEST:
-      return state
+      return {
+        ...state,
+        loading: true,
+        error: false
+      }
 
     case FETCH_FORECAST_SUCCESS:
-      return state
+      const { city, forecast } = action.payload
+
+      return {
+        ...state,
+        city,
+        forecast,
+        loading: false,
+        error: false
+      }
 
     case FETCH_FORECAST_FAILURE:
-      return state
+      return {
+        ...state,
+        city: '',
+        forecast: {},
+        loading: false,
+        error: true
+      }
 
     default:
       return state

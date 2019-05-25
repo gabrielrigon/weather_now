@@ -5,7 +5,7 @@
 
 - Rails master key: `06c8a6f73e675bc850f9e750851f7bcb`
 
-## Evironment dependencies
+## Environment dependencies
 - Ruby = 2.6.3
 - Node >= 10.15.3
 - Yarn >= 1.16.0
@@ -14,9 +14,9 @@
 ## How to set up this project
 1. Clone this repo.
 2. Create a file named as `master.key`, which should be localized into `/config` folder.
-3. Duplicate the file `database.yml.sample`, localized on folder `/config`, and name it as `database.yml`.
-4. On this file (`database.yml`), insert your Postgres configuration.
-5. Duplicate the file `.env.sample` and name it as `.env.development`
+3. Duplicate the file `database.yml.sample`, localized on folder `/config`, name it as `database.yml` and insert your Postgres configuration.
+4. Duplicate the file `.env.sample`, localized on root path and name it as `.env.development`, complete the parameters.
+5. Duplicate the file `env.js.sample`, localized on folder `/app/javascript/src/config`, name it as `env.js` and complete the parameters.
 6. Install the dependencies following these commands:
 ```sh
   $ bundle
@@ -40,3 +40,6 @@
 ```sh
   $ rails s -p 3000
 ```
+
+## Extra information
+- If you don't have an OpenWeatherMap `appid`, you can create one by accessing this guide: https://openweathermap.org/guide.

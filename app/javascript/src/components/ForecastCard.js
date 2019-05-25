@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `
 
 const CityName = styled.h2`
-  color: #4a4a4a;
+  color: #5a5a5a;
   display: block;
   width: 100%;
 
@@ -28,7 +28,7 @@ const CityName = styled.h2`
 
   @media (min-width: 600px) {
     float: left;
-    max-width: 60%;
+    max-width: 65%;
   }
 `
 
@@ -37,7 +37,7 @@ const Forecast = styled.div`
 
   @media (min-width: 600px) {
     float: left;
-    max-width: 40%;
+    max-width: 35%;
   }
 
   &::after {
@@ -67,12 +67,12 @@ const Temperature = styled.h2`
 `
 
 const ForecastCard = props => {
-  const { cityName, forecast } = props
+  const { city, forecast } = props
   const { fahrenheit, celsius } = forecast || {}
 
   return (
     <Wrapper>
-      <CityName>{cityName}</CityName>
+      <CityName>{city || '----'}</CityName>
       <Forecast>
         <TemperatureWrapper>
           <Temperature>{fahrenheit || '--'} ºF</Temperature>

@@ -33,11 +33,11 @@ class ThirdParty::OpenWeatherMap
   def parsed_data
     return {} if @response.dig("list").blank?
 
-    farenheit_temp = @response.dig("list").first.dig("main", "temp")
-    celsius_temp = ::Weather::Converters::Fahrenheit.new(farenheit_temp).to_celsius
+    fahrenheit_temp = @response.dig("list").first.dig("main", "temp")
+    celsius_temp = ::Weather::Converters::Fahrenheit.new(fahrenheit_temp).to_celsius
 
     return {
-      farenheit: farenheit_temp,
+      fahrenheit: fahrenheit_temp.round,
       celsius: celsius_temp
     }
   end
