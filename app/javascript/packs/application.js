@@ -14,7 +14,9 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker')
+// extra imports
+import '../src/assets/normalize.css'
+import '../src/assets/fonts.css'
 
 // Support component names relative to this directory:
 
