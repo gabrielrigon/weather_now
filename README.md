@@ -26,6 +26,10 @@
 ```sh
   $ rails db:create
 ```
+8. Enable development mode cache:
+```sh
+  $ rails dev:cache
+```
 
 ## How to run (in development mode) this project
 1. After set up, you need to run webpack dev server (in another window):
