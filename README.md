@@ -16,12 +16,13 @@
 2. Create a file named as `master.key`, which should be localized into `/config` folder.
 3. Duplicate the file `database.yml.sample`, localized on folder `/config`, and name it as `database.yml`.
 4. On this file (`database.yml`), insert your Postgres configuration.
-5. Install the dependencies following these commands:
+5. Duplicate the file `.env.sample` and name it as `.env.development`
+6. Install the dependencies following these commands:
 ```sh
   $ bundle
   $ yarn
 ```
-6. Create the database:
+7. Create the database:
 ```sh
   $ rails db:create
 ```
