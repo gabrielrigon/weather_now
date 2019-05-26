@@ -1,5 +1,9 @@
 import { proxy } from './index'
 
-export const fetch = () => {
-  return proxy.get('/forecast')
+export const fetch = city => {
+  return proxy.get('/forecast', {
+    params: {
+      city
+    }
+  })
 }
