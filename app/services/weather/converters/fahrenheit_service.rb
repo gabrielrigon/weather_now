@@ -1,4 +1,4 @@
-class Weather::Converters::Fahrenheit
+class Weather::Converters::FahrenheitService
   def initialize(fahrenheit)
     @fahrenheit = fahrenheit.to_f
   end

@@ -34,7 +34,7 @@ class ThirdParty::OpenWeatherMap
     return handled_error(@response) if @response.dig("cod").to_i >= 300
 
     fahrenheit_temp = @response.dig("list").first.dig("main", "temp")
-    celsius_temp = ::Weather::Converters::Fahrenheit.new(fahrenheit_temp).to_celsius
+    celsius_temp = ::Weather::Converters::FahrenheitService.new(fahrenheit_temp).to_celsius
 
     {
       status: :success,
