@@ -34,7 +34,7 @@ const SearchBox = styled.input`
   width: calc(85% - 1.4rem);
 
   @media (max-width: 700px) {
-    width: calc(75% - 1.4rem);
+    width: calc(68% - 1.4rem);
   }
 `
 
@@ -50,7 +50,7 @@ const SearchButton = styled.button`
   width: calc(15% - 0.7rem);
 
   @media (max-width: 700px) {
-    width: calc(25% - 0.7rem);
+    width: calc(32% - 0.7rem);
   }
 `
 
