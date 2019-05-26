@@ -1,7 +1,20 @@
 class Api::Private::UsersController < Api::Private::BaseController
   include Api::Private::UsersHelper
 
-  before_action :validate_params, only: :create
+  before_action :validate_params, only: %i[authenticate create]
+  before_action :find_user_by_id, only: :authenticate
+
+  def authenticate
+    user = User.find_by(email: user_params.dig(:email))
+
+    if !user || !user.authenticate(user_params.dig(:password))
+      return head :unauthorized
+    end
+
+    render json: {
+      token: ::Auth::TokenService.new(user.id).create_jwt_token
+    }
+  end
 
   def create
     user = User.new
@@ -15,6 +28,11 @@ class Api::Private::UsersController < Api::Private::BaseController
   end
 
   private
+
+  def find_user_by_id
+    @user = User.find_by(email: user_params.dig(:email))
+    return head :unauthorized unless @user
+  end
 
   def user_params
     params.require(:user).permit(:email, :password)
