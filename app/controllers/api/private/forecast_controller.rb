@@ -1,5 +1,5 @@
 class Api::Private::ForecastController < Api::Private::BaseController
-  include Api::Private::ForecastHelper
+  include Api::ForecastHelper
 
   before_action :validate_params, only: :index
 
@@ -30,9 +30,5 @@ class Api::Private::ForecastController < Api::Private::BaseController
   def validate_params
     return if valid_index_params?
     render_error(:bad_request, "missing param :city")
-  end
-
-  def render_error(status, message)
-    render(status: status, json: { error: message })
   end
 end

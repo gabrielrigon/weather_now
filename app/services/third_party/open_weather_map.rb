@@ -10,6 +10,10 @@ class ThirdParty::OpenWeatherMap
     parsed_data
   end
 
+  def fetch_raw
+    JSON.parse(make_request)
+  end
+
   private
 
   def make_request
