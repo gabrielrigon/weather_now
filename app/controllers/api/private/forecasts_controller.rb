@@ -1,5 +1,5 @@
-class Api::Private::ForecastController < Api::Private::BaseController
-  include Api::ForecastHelper
+class Api::Private::ForecastsController < Api::Private::BaseController
+  include Api::ForecastsHelper
 
   before_action :validate_params, only: :index
 
