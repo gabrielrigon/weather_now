@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { expect(described_class.ancestors).to include ApplicationRecord }
 
+  context "relationships" do
+    it { is_expected.to have_many :favorites }
+  end
+
   context "validations" do
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_presence_of :password }
