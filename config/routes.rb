@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :api, default: { format: :json } do
     namespace :private do
+      resources :favorites, only: %i[create destroy]
       resources :forecasts, only: :index
 
       resources :users, only: :create do
