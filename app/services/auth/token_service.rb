@@ -6,7 +6,15 @@ class Auth::TokenService
   end
 
   def create_jwt_token
-    JWT.encode data_with_exp, JWT_SECRET, 'HS256'
+    JWT.encode(data_with_exp, JWT_SECRET, 'HS256')
+  end
+
+  def open_jwt_token
+    begin
+      JWT.decode(@data, JWT_SECRET, true, { algorithm: 'HS256' }).first
+    rescue
+      nil
+    end
   end
 
   private
