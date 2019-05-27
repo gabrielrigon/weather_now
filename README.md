@@ -22,11 +22,11 @@
   $ bundle
   $ yarn
 ```
-7. Create the database:
+7. Create the database and tables:
 ```sh
-  $ rails db:create
+  $ rails db:create db:migrate
 ```
-8. Enable development mode cache:
+8. Enable development mode cache (check the result, if it was enabled):
 ```sh
   $ rails dev:cache
 ```
@@ -39,6 +39,17 @@
 2. Then, finally, run Rails server:
 ```sh
   $ rails s -p 3000
+```
+
+## Running tests
+1. Set up the project. (following the instructions on the "How to set up this project" section)
+2. Create the test database and tables:
+```sh
+  $ rails db:create db:migrate RAILS_ENV=test
+```
+3. Run tests:
+```sh
+  $ bundle exec rspec
 ```
 
 ## Extra information
