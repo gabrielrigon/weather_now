@@ -2,7 +2,7 @@ class Api::Private::UsersController < Api::Private::BaseController
   include Api::Private::UsersHelper
 
   before_action :validate_params, only: %i[authenticate create]
-  before_action :find_user_by_id, only: :authenticate
+  before_action :find_user_by_email, only: :authenticate
 
   def authenticate
     user = User.find_by(email: user_params.dig(:email))
@@ -29,7 +29,7 @@ class Api::Private::UsersController < Api::Private::BaseController
 
   private
 
-  def find_user_by_id
+  def find_user_by_email
     @user = User.find_by(email: user_params.dig(:email))
     return head :unauthorized unless @user
   end

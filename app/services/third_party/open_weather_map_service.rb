@@ -1,4 +1,4 @@
-class ThirdParty::OpenWeatherMap
+class ThirdParty::OpenWeatherMapService
   URL = ENV["OPEN_WEATHER_MAP_URL"]
 
   def initialize(city)

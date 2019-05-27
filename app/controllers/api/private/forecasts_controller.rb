@@ -5,7 +5,7 @@ class Api::Private::ForecastsController < Api::Private::BaseController
 
   def index
     city = forecast_params.dig(:city)
-    result = ::ThirdParty::OpenWeatherMap.new(city).fetch_formatted
+    result = ::ThirdParty::OpenWeatherMapService.new(city).fetch_formatted
 
     if result.dig(:status) == :success 
       return render json: {

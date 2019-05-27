@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :forecast, only: :index
+    resources :forecasts, only: :index
   end
 
   get '*path', to: 'app#index', constraints: -> (req) { !req.xhr? && req.format.html? }

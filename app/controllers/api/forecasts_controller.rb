@@ -1,11 +1,11 @@
-class Api::ForecastController < Api::BaseController
-  include Api::ForecastHelper
+class Api::ForecastsController < Api::BaseController
+  include Api::ForecastsHelper
 
   before_action :validate_params, only: :index
 
   def index
     city = forecast_params.dig(:city)
-    render json: ::ThirdParty::OpenWeatherMap.new(city).fetch_raw
+    render json: ::ThirdParty::OpenWeatherMapService.new(city).fetch_raw
   end
 
   protected
