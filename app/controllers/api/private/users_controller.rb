@@ -1,6 +1,8 @@
 class Api::Private::UsersController < Api::Private::BaseController
   include Api::Private::UsersHelper
 
+  skip_before_action :authenticate_user
+
   before_action :validate_params, only: %i[authenticate create]
   before_action :find_user_by_email, only: :authenticate
 
