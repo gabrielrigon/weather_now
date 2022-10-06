@@ -5,7 +5,7 @@ class Api::ForecastsController < Api::BaseController
 
   def index
     city = forecast_params.dig(:city)
-    render json: ::ThirdParty::OpenWeatherMapService.new(city).fetch_raw
+    render(json: ::ThirdParty::OpenWeatherMapService.new(city).fetch_raw)
   end
 
   protected
@@ -18,6 +18,7 @@ class Api::ForecastsController < Api::BaseController
   
   def validate_params
     return if valid_index_params?
+
     render_error(:bad_request, "missing param :city")
   end
 end
