@@ -1,9 +1,5 @@
-# Weather Now (Beta)
+# Weather Now
 > A simple app to query current weather, based on OpenWeatherMap.
-
-## Configuration
-
-- Rails master key: `06c8a6f73e675bc850f9e750851f7bcb`
 
 ## Environment dependencies
 - Ruby = 2.6.3
@@ -38,7 +34,7 @@
 ```
 2. Then, finally, run Rails server:
 ```sh
-  $ rails s -p 3000
+  $ rails s -p 3000 -b 0.0.0.0
 ```
 
 ## Running tests
